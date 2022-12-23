@@ -12,7 +12,7 @@ function App() {
 
   const handleAddDeck = async (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch('http://localhost:5000/decks', {
+    const response = await fetch('http://localhost:5000/decks', {
       method: 'POST',
       body: JSON.stringify({
         title,
@@ -21,6 +21,8 @@ function App() {
         'Content-Type': 'application/json',
       },
     });
+    const newDeck = await response.json();
+    setDecks([...decks, newDeck]);
     setTitle('');
   };
 
