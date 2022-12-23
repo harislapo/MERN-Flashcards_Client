@@ -4,9 +4,9 @@ import './App.css';
 function App() {
   const [title, setTitle] = useState('');
 
-  const handleAddDeck = (e: React.FormEvent) => {
+  const handleAddDeck = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetch('http://localhost:5000/decks', {
+    await fetch('http://localhost:5000/decks', {
       method: 'POST',
       body: JSON.stringify({
         title,
@@ -15,6 +15,7 @@ function App() {
         'Content-Type': 'application/json',
       },
     });
+    setTitle('');
   };
 
   return (
