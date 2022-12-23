@@ -11,6 +11,9 @@ function App() {
       body: JSON.stringify({
         title,
       }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   };
 
