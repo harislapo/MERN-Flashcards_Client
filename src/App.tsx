@@ -24,6 +24,14 @@ function App() {
     setTitle('');
   };
 
+  const handleDeleteDeck = async (deckId: string) => {
+    await fetch(`http://localhost:5000/decks/${deckId}`, {
+      method: 'DELETE',
+    });
+    // update UI
+    setDecks(decks.filter((deck) => deck._id !== deckId));
+  };
+
   useEffect(() => {
     const fetchDecks = async () => {
       const response = await fetch('http://localhost:5000/decks');
@@ -49,7 +57,12 @@ function App() {
       </form>
       <div className="decks">
         {decks.map((deck) => {
-          return <li key={deck._id}>{deck.title}</li>;
+          return (
+            <li key={deck._id}>
+              <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
+              {deck.title}
+            </li>
+          );
         })}
       </div>
     </div>
