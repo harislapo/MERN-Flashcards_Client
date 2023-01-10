@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { addCard } from './api/addCard';
+import { deleteCard } from './api/deleteCard';
 import { getDeck } from './api/getDeck';
 import { TDeck } from './api/getDecks';
 import './App.css';
@@ -27,11 +28,12 @@ const Deck = () => {
     setText('');
   };
 
-  // const handleDeleteDeck = async (deckId: string) => {
-  //   await deleteDeck(deckId);
-  //   // update UI
-  //   setDecks(decks.filter((deck) => deck._id !== deckId));
-  // };
+  const handleDeleteCard = async (index: number) => {
+    if (!deckId) return;
+    const newDeck = await deleteCard(deckId, index);
+    // update UI
+    setCards(newDeck.cards);
+  };
 
   useEffect(() => {
     const fetchDeck = async () => {
@@ -58,14 +60,12 @@ const Deck = () => {
         <button>Add</button>
       </form>
       <div className="decks">
-        {cards.map((card) => {
-          return (
-            <li key={card}>
-              {/* <button onClick={() => handleDeleteDeck(deck._id)}>X</button> */}
-              {card}
-            </li>
-          );
-        })}
+        {cards.map((card, index) => (
+          <li key={index}>
+            <button onClick={() => handleDeleteCard(index)}>X</button>
+            {card}
+          </li>
+        ))}
       </div>
     </div>
   );
