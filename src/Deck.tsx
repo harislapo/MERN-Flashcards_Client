@@ -4,7 +4,7 @@ import { addCard } from './api/addCard';
 import { deleteCard } from './api/deleteCard';
 import { getDeck } from './api/getDeck';
 import { TDeck } from './api/getDecks';
-import './App.css';
+import './Deck.css';
 
 const Deck = () => {
   const [text, setText] = useState('');
@@ -46,7 +46,7 @@ const Deck = () => {
   }, [deckId]);
 
   return (
-    <div className="App">
+    <div className="Deck">
       <form onSubmit={handleAddCard}>
         <label htmlFor="card-text">Title</label>
         <input
@@ -59,14 +59,14 @@ const Deck = () => {
         />
         <button>Add</button>
       </form>
-      <div className="decks">
+      <ul className="cards">
         {cards.map((card, index) => (
           <li key={index}>
             <button onClick={() => handleDeleteCard(index)}>X</button>
             {card}
           </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
