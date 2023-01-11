@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { addCard } from './api/addCard';
-import { deleteCard } from './api/deleteCard';
-import { getDeck } from './api/getDeck';
-import { TDeck } from './api/getDecks';
+import { addCard, deleteCard, getDeck, TDeck } from './api/api';
 import './Deck.css';
 
 const Deck = () => {

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { addDeck } from './api/addDeck';
-import { deleteDeck } from './api/deleteDeck';
-import { getDecks, TDeck } from './api/getDecks';
+import { addDeck, deleteDeck, getDecks, TDeck } from './api/api';
 import './App.css';
 
 function App() {
