@@ -1,45 +1,45 @@
 .App {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 20px; */
 }
 
 .App form {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 10px; */
 }
 
 .App h1 {
-  font-size: 34px;
-  text-align: center;
+  /* font-size: 34px;
+  text-align: center; */
 }
 
 .decks {
-  display: grid;
+  /* display: grid;
   margin: 0 auto;
-  width: 600px;
+  max-width: 5em;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  color: black;
+  color: black; */
 }
 
 .decks li {
-  display: flex;
+  /* display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
   height: 150px;
   background: white;
   border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 .decks li button {
-  position: absolute;
+  /* position: absolute;
   font-size: 12px;
   top: 5px;
   right: 5px;
-  color: red;
+  color: red; */
 }

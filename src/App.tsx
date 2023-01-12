@@ -29,31 +29,29 @@ function App() {
   }, []);
 
   return (
-    <div className="container-default">
-      <div className="App">
-        <h1>Flashcards</h1>
-        <form onSubmit={handleAddDeck}>
-          <label htmlFor="deck-title">Title</label>
-          <input
-            type="text"
-            id="deck-title"
-            value={title}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setTitle(e.target.value);
-            }}
-          />
-          <button>Add</button>
-        </form>
-        <div className="decks">
-          {decks.map((deck) => {
-            return (
-              <li key={deck._id}>
-                <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
-                <Link to={`decks/${deck._id}`}>{deck.title}</Link>
-              </li>
-            );
-          })}
-        </div>
+    <div className="App">
+      <h1>Flashcards</h1>
+      <form onSubmit={handleAddDeck}>
+        <label htmlFor="deck-title">Title</label>
+        <input
+          type="text"
+          id="deck-title"
+          value={title}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <button>Add</button>
+      </form>
+      <div className="decks">
+        {decks.map((deck) => {
+          return (
+            <li key={deck._id}>
+              <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
+              <Link to={`decks/${deck._id}`}>{deck.title}</Link>
+            </li>
+          );
+        })}
       </div>
     </div>
   );
