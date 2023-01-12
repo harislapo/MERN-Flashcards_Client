@@ -44,6 +44,7 @@ const Deck = () => {
 
   return (
     <div className="Deck">
+      <h1>{deck?.title}</h1>
       <form onSubmit={handleAddCard}>
         <label htmlFor="card-text">Title</label>
         <input

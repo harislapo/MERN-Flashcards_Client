@@ -11,6 +11,11 @@
   gap: 10px;
 }
 
+.Deck h1 {
+  font-size: 34px;
+  text-align: center;
+}
+
 .cards {
   display: grid;
   margin: 0 auto;
