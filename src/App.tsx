@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <h1>Flashcards</h1>
       <form onSubmit={handleAddDeck}>
         <label htmlFor="deck-title">Title</label>
@@ -43,13 +43,16 @@ function App() {
         />
         <button>Add</button>
       </form>
-      <div className="decks">
+      <div className="deck-grid">
         {decks.map((deck) => {
           return (
-            <li key={deck._id}>
-              <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
-              <Link to={`decks/${deck._id}`}>{deck.title}</Link>
-            </li>
+            <div className="deck" key={deck._id}>
+              <div className="deck__content">
+                <h2 className="deck__title">{deck.title}</h2>
+                <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
+              </div>
+              {/* <Link to={`decks/${deck._id}`}>{deck.title}</Link> */}
+            </div>
           );
         })}
       </div>

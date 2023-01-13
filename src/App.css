@@ -1,45 +1,24 @@
-.App {
-  /* display: flex;
-  flex-direction: column;
-  gap: 20px; */
-}
-
-.App form {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px; */
-}
-
-.App h1 {
-  /* font-size: 34px;
-  text-align: center; */
-}
-
-.decks {
-  /* display: grid;
-  margin: 0 auto;
-  max-width: 5em;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  color: black; */
-}
-
-.decks li {
-  /* display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-  background: white;
-  border: 1px solid white;
-  border-radius: 10px; */
-}
-
-.decks li button {
-  /* position: absolute;
+.deck button {
+  /* position: absolute; */
   font-size: 12px;
   top: 5px;
   right: 5px;
-  color: red; */
+  color: red;
+  cursor: pointer;
+}
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.deck {
+  border: 3px solid grey;
+  background: white;
+}
+
+.deck__content {
+  color: black;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
