@@ -1,32 +1,32 @@
-.Deck {
-  /* display: flex;
+/* .Deck {
+  display: flex;
   flex-direction: column;
-  gap: 20px; */
-}
+  gap: 20px;
+} */
 
-.Deck form {
-  /* display: flex;
+/* .Deck form {
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; */
-}
-
+  gap: 10px;
+} */
+/* 
 .Deck h1 {
   font-size: 34px;
   text-align: center;
-}
-
+} */
+/* 
 .cards {
-  /* display: grid;
+  display: grid;
   margin: 0 auto;
   width: 600px;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  color: black; */
-}
+  color: black;
+} */
 
-.cards li {
-  /* display: flex;
+/* .cards li {
+  display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -34,13 +34,13 @@
   background: white;
   border: 1px solid white;
   border-radius: 11px;
-  padding-top: 20px; */
-}
+  padding-top: 20px;
+} */
 
-.cards li button {
-  /* position: absolute;
+/* .cards li button {
+  position: absolute;
   font-size: 12px;
   top: 5px;
   right: 5px;
-  color: red; */
-}
+  color: red;
+} */

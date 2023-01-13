@@ -44,13 +44,23 @@ function App() {
         <button>Add</button>
       </form>
       <div className="deck-grid">
-        {decks.map((deck) => {
+        {decks.map((deck, index) => {
           return (
-            <div className="deck" key={deck._id}>
+            <div
+              className={`deck ${index === 0 ? 'featured' : ''} `}
+              key={deck._id}
+            >
               <div className="deck__content">
                 <h2 className="deck__title">{deck.title}</h2>
-                <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
+                <p className="deck__description">
+                  Test your {deck.title.split(' ', 1)} knowledge!
+                </p>
+                <div className="deck__buttons">
+                  <button>Go!</button>
+                  <button onClick={() => handleDeleteDeck(deck._id)}>x</button>
+                </div>
               </div>
+
               {/* <Link to={`decks/${deck._id}`}>{deck.title}</Link> */}
             </div>
           );

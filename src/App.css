@@ -1,24 +1,52 @@
-.deck button {
-  /* position: absolute; */
-  font-size: 12px;
-  top: 5px;
-  right: 5px;
-  color: red;
-  cursor: pointer;
-}
-
 .deck-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.3rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
 .deck {
-  border: 3px solid grey;
-  background: white;
+  /* border: 3px solid black; */
+  background: aliceblue;
 }
 
 .deck__content {
   color: black;
-  margin: 0.5rem;
+  margin: 0.5rem 0.5rem 2rem;
   padding: 0.5rem;
+  box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.1);
+  height: 80%;
+}
+
+.deck__title {
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  color: firebrick;
+}
+
+.deck__description {
+  text-align: center;
+}
+
+.deck__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.deck button {
+  /* position: absolute; */
+  /* font-size: 12px; */
+  /* top: 5px; */
+  /* right: 5px; */
+  /* color: red; */
+  cursor: pointer;
+}
+
+@media (min-width: 60em) {
+  .deck.featured {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
 }
