@@ -46,19 +46,21 @@ function App() {
       <div className="deck-grid">
         {decks.map((deck, index) => {
           return (
-            <div
-              className={`deck ${index === 0 ? 'featured' : ''} `}
-              key={deck._id}
-            >
+            <div className="deck" key={deck._id}>
               <div className="deck__content">
                 <h2 className="deck__title">{deck.title}</h2>
                 <p className="deck__description">
                   Test your {deck.title.split(' ', 1)} knowledge!
                 </p>
-                <div className="deck__buttons">
-                  <button>Go!</button>
-                  <button onClick={() => handleDeleteDeck(deck._id)}>x</button>
+                <div className="flex-btn">
+                  <button className="btn__proceed">Go!</button>
                 </div>
+                <button
+                  className="btn__delete"
+                  onClick={() => handleDeleteDeck(deck._id)}
+                >
+                  x
+                </button>
               </div>
 
               {/* <Link to={`decks/${deck._id}`}>{deck.title}</Link> */}
