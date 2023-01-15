@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addDeck, deleteDeck, getDecks, TDeck } from './api/api';
 import './App.css';
 
 function App() {
   const [title, setTitle] = useState('');
   const [decks, setDecks] = useState<TDeck[]>([]);
+  const navigate = useNavigate();
 
   const handleAddDeck = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,19 +31,25 @@ function App() {
 
   return (
     <div>
-      <h1>Flashcards</h1>
-      <form onSubmit={handleAddDeck}>
-        <label htmlFor="deck-title">Title</label>
-        <input
-          type="text"
-          id="deck-title"
-          value={title}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <button>Add</button>
-      </form>
+      <div className="heading-flex">
+        <h1>Flashcards</h1>
+        <form onSubmit={handleAddDeck}>
+          <div style={{ textAlign: 'center' }}>
+            <button>Add new?</button>
+          </div>
+          <br />
+          <input
+            type="text"
+            id="deck-title"
+            value={title}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setTitle(e.target.value);
+            }}
+            placeholder="..."
+          />
+          {/* <button>Add</button> */}
+        </form>
+      </div>
       <div className="deck-grid">
         {decks.map((deck, index) => {
           return (
@@ -53,8 +60,15 @@ function App() {
                   Test your {deck.title.split(' ', 1)} knowledge!
                 </p>
                 <div className="flex-btn">
-                  <button className="btn__proceed">Go!</button>
+                  <button
+                    type="button"
+                    className="fill-btn"
+                    onClick={() => navigate(`decks/${deck._id}`)}
+                  >
+                    Try
+                  </button>
                 </div>
+
                 <button
                   className="btn__delete"
                   onClick={() => handleDeleteDeck(deck._id)}
@@ -62,8 +76,6 @@ function App() {
                   x
                 </button>
               </div>
-
-              {/* <Link to={`decks/${deck._id}`}>{deck.title}</Link> */}
             </div>
           );
         })}

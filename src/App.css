@@ -1,3 +1,11 @@
+.heading-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* justify-content: center; */
+  place-items: center;
+}
+
 .deck-grid {
   display: grid;
   gap: 0.3rem;
@@ -6,8 +14,7 @@
 }
 
 .deck {
-  /* border: 3px solid black; */
-  background: #333333;
+  /* background-color: #333333; */
   border: 1px solid white;
   position: relative;
   border-radius: 1rem;
@@ -17,8 +24,6 @@
   color: black;
   margin: 2rem;
   padding: 0.5rem;
-  /* box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.1); */
-  /* height: 80%; */
 }
 
 .deck__title {
@@ -33,35 +38,61 @@
   text-align: center;
   margin-bottom: 1rem;
   line-height: 1.3;
+  color: white;
 }
 
 .deck button {
   cursor: pointer;
-  border: none;
 }
 
 .flex-btn {
   display: flex;
   justify-content: center;
   place-items: center;
-  height: 100%;
-}
-
-.btn__proceed {
-  background-color: green;
-  color: white;
-  width: 5rem;
-  position: absolute;
-  bottom: 10px;
+  /* height: 100%; */
 }
 
 .btn__delete {
   background-color: transparent;
-  font-size: 16px;
-  color: red;
+  font-size: 18px;
+  color: rgb(185, 33, 33);
   position: absolute;
   top: 10px;
   right: 10px;
+  border: none;
+}
+
+.btn__delete:hover {
+  color: rgba(255, 0, 0, 1)
+}
+
+.fill-btn {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.fill-btn::after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.fill-btn:hover::after {
+  top: 0px;
+  left: 0px;
 }
 
 /* @media (min-width: 60em) {
