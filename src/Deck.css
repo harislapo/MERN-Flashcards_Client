@@ -1,21 +1,21 @@
-/* .Deck {
+.Deck {
   display: flex;
   flex-direction: column;
   gap: 20px;
-} */
+}
 
-/* .Deck form {
+.Deck form {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-} */
-/* 
+}
+
 .Deck h1 {
   font-size: 34px;
   text-align: center;
-} */
-/* 
+}
+
 .cards {
   display: grid;
   margin: 0 auto;
@@ -23,9 +23,9 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   color: black;
-} */
+}
 
-/* .cards li {
+.cards li {
   display: flex;
   position: relative;
   justify-content: center;
@@ -35,12 +35,12 @@
   border: 1px solid white;
   border-radius: 11px;
   padding-top: 20px;
-} */
+}
 
-/* .cards li button {
+.cards li button {
   position: absolute;
   font-size: 12px;
   top: 5px;
   right: 5px;
   color: red;
-} */
+}

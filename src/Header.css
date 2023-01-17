@@ -1,14 +1,18 @@
-/* .Header {
-  min-height: 5em;
+.header {
+  /* min-height: 5em; */
   background-color: #313131;
   color: black;
-  width: 100%;
-} */
+  /* width: 100%; */
+}
 
-/* .Header .container {
+.header .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin: 0 auto;
   height: 100%;
   align-items: center;
-} */
+}
+
+.header img {
+  width: 5em;
+}

@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [title, setTitle] = useState('');
   const [decks, setDecks] = useState<TDeck[]>([]);
+  const [showInput, setShowInput] = useState(false);
   const navigate = useNavigate();
 
   const handleAddDeck = async (e: React.FormEvent) => {
@@ -30,23 +31,30 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper">
       <div className="heading-flex">
         <h1>Flashcards</h1>
         <form onSubmit={handleAddDeck}>
-          <div style={{ textAlign: 'center' }}>
-            <button>Add new?</button>
+          <div>
+            <button
+              className="action-btn"
+              onClick={() => setShowInput(!showInput)}
+            >
+              Add new?
+            </button>
           </div>
           <br />
-          <input
-            type="text"
-            id="deck-title"
-            value={title}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setTitle(e.target.value);
-            }}
-            placeholder="..."
-          />
+          {showInput && (
+            <input
+              type="text"
+              id="deck-title"
+              value={title}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setTitle(e.target.value);
+              }}
+              placeholder="..."
+            />
+          )}
           {/* <button>Add</button> */}
         </form>
       </div>
@@ -62,7 +70,7 @@ function App() {
                 <div className="flex-btn">
                   <button
                     type="button"
-                    className="fill-btn"
+                    className="action-btn"
                     onClick={() => navigate(`decks/${deck._id}`)}
                   >
                     Try

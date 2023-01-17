@@ -17,6 +17,11 @@
   margin: 0;
 }
 
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -65,7 +70,6 @@ button:focus-visible {
 } */
 
 .container {
-  max-width: 50rem;
   margin-inline: auto;
   padding-inline: auto;
 }

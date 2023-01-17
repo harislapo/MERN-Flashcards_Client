@@ -1,8 +1,12 @@
+.wrapper {
+  max-width: 50rem;
+  margin: auto;
+}
+
 .heading-flex {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  /* justify-content: center; */
   place-items: center;
 }
 
@@ -63,12 +67,12 @@
 }
 
 .btn__delete:hover {
-  color: rgba(255, 0, 0, 1)
+  color: rgba(255, 0, 0, 1);
 }
 
-.fill-btn {
+.action-btn {
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 600;
   letter-spacing: 1px;
   padding: 13px 50px 13px;
   outline: 0;
@@ -78,8 +82,8 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.fill-btn::after {
-  content: "";
+.action-btn::after {
+  content: '';
   background-color: #ffe54c;
   width: 100%;
   z-index: -1;
@@ -90,7 +94,7 @@
   transition: 0.2s;
 }
 
-.fill-btn:hover::after {
+.action-btn:hover::after {
   top: 0px;
   left: 0px;
 }
