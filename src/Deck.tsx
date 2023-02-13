@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { addCard, deleteCard, getDeck, TDeck } from './api/api';
+import Navbar from './Navbar';
 import './Deck.css';
 
 const Deck = () => {
@@ -43,29 +44,32 @@ const Deck = () => {
   }, [deckId]);
 
   return (
-    <div className="Deck">
-      <h1>{deck?.title}</h1>
-      <form onSubmit={handleAddCard}>
-        <label htmlFor="card-text">Title</label>
-        <input
-          type="text"
-          id="card-text"
-          value={text}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setText(e.target.value);
-          }}
-        />
-        <button>Add</button>
-      </form>
-      <ul className="cards">
-        {cards.map((card, index) => (
-          <li key={index}>
-            <button onClick={() => handleDeleteCard(index)}>X</button>
-            {card}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Navbar />
+      <div className="Deck">
+        <h1>{deck?.title}</h1>
+        <form onSubmit={handleAddCard}>
+          <label htmlFor="card-text">Title</label>
+          <input
+            type="text"
+            id="card-text"
+            value={text}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setText(e.target.value);
+            }}
+          />
+          <button>Add</button>
+        </form>
+        <ul className="cards">
+          {cards.map((card, index) => (
+            <li key={index}>
+              <button onClick={() => handleDeleteCard(index)}>X</button>
+              {card}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 
