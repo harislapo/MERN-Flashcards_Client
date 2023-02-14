@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { deleteDeck, getDecks, TDeck } from './api/api';
+import { useEffect } from 'react';
+import { deleteDeck, getDecks } from './api/api';
 import { useNavigate } from 'react-router-dom';
+import { useDecksProvider } from './context/context';
 import './DeckGrid.css';
 
 const DeckGrid = () => {
-  const [decks, setDecks] = useState<TDeck[]>([]);
+  const {decks, setDecks} = useDecksProvider();
   const navigate = useNavigate();
 
   const handleDeleteDeck = async (deckId: string) => {
