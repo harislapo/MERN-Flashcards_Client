@@ -24,23 +24,3 @@
   grid-gap: 10px;
   color: black;
 }
-
-.cards li {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-  background: white;
-  border: 1px solid white;
-  border-radius: 11px;
-  padding-top: 20px;
-}
-
-.cards li button {
-  position: absolute;
-  font-size: 12px;
-  top: 5px;
-  right: 5px;
-  color: red;
-}

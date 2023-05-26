@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { addCard, deleteCard, getDeck, TDeck } from './api/api';
+import FlipCard from './Utils/FlipCard';
 import Navbar from './Navbar';
 import './Deck.css';
 
@@ -62,10 +63,7 @@ const Deck = () => {
         </form>
         <ul className="cards">
           {cards.map((card, index) => (
-            <li key={index}>
-              <button onClick={() => handleDeleteCard(index)}>X</button>
-              {card}
-            </li>
+            <FlipCard card={card} key={index}/>
           ))}
         </ul>
       </div>
