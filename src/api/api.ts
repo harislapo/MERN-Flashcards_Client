@@ -6,11 +6,16 @@ export type TDeck = {
   cards: string[];
 };
 
-export const addCard = async (deckId: string, text: string): Promise<TDeck> => {
+export const addCard = async (
+  deckId: string,
+  question: string,
+  answer: string
+): Promise<TDeck> => {
   const response = await fetch(`${API_URL}/decks/${deckId}/cards`, {
     method: 'POST',
     body: JSON.stringify({
-      cardText: text,
+      question,
+      answer,
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -32,22 +37,6 @@ export const addDeck = async (title: string) => {
   return response.json();
 };
 
-export const deleteCard = async (
-  deckId: string,
-  index: number
-): Promise<TDeck> => {
-  const response = await fetch(`${API_URL}/decks/${deckId}/cards/${index}`, {
-    method: 'DELETE',
-  });
-  return response.json();
-};
-
-export const deleteDeck = async (deckId: string) => {
-  await fetch(`${API_URL}/decks/${deckId}`, {
-    method: 'DELETE',
-  });
-};
-
 export const getDeck = async (deckId: string): Promise<TDeck> => {
   const response = await fetch(`${API_URL}/decks/${deckId}`);
   return response.json();
@@ -57,3 +46,22 @@ export const getDecks = async (): Promise<TDeck[]> => {
   const response = await fetch(`${API_URL}/decks`);
   return response.json();
 };
+
+// Since this app doesn't have authentication or authorization,
+// deleting of anything will be disabled by default.
+
+// export const deleteCard = async (
+//   deckId: string,
+//   index: number
+// ): Promise<TDeck> => {
+//   const response = await fetch(`${API_URL}/decks/${deckId}/cards/${index}`, {
+//     method: 'DELETE',
+//   });
+//   return response.json();
+// };
+
+// export const deleteDeck = async (deckId: string) => {
+//   await fetch(`${API_URL}/decks/${deckId}`, {
+//     method: 'DELETE',
+//   });
+// };

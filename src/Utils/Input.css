@@ -1,12 +1,10 @@
 /* necessary to give position: relative to parent. */
-
 :focus {
   outline: none;
 }
 
 input[type='text'] {
   font-size: 0.9rem;
-  color: #fff;
   width: 100%;
   box-sizing: border-box;
   letter-spacing: 1px;

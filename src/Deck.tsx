@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { addCard, deleteCard, getDeck, TDeck } from './api/api';
+import { addCard, getDeck, TDeck } from './api/api';
 import FlipCard from './Utils/FlipCard';
 import Navbar from './Navbar';
+import Input from './Utils/Input';
 import './Deck.css';
 
 const Deck = () => {
-  const [text, setText] = useState('');
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
   const [cards, setCards] = useState<string[]>([]);
   const [deck, setDeck] = useState<TDeck | undefined>();
 
@@ -17,22 +19,26 @@ const Deck = () => {
     if (!deckId) return;
 
     // Get response from api so we can update the UI accordingly.
-    const response = await addCard(deckId, text);
+    const response = await addCard(deckId, question, answer);
 
     // Pull cards property from response and rename it to avoid name clashing with state property.
     const { cards: fetchedCards } = response;
 
     // Update UI.
     setCards(fetchedCards);
-    setText('');
+    setQuestion('');
+    setAnswer('');
   };
 
-  const handleDeleteCard = async (index: number) => {
-    if (!deckId) return;
-    const newDeck = await deleteCard(deckId, index);
-    // update UI
-    setCards(newDeck.cards);
-  };
+  // Since this app doesn't have authentication or authorization,
+  // deleting of anything will be disabled by default.
+
+  // const handleDeleteCard = async (index: number) => {
+  //   if (!deckId) return;
+  //   const newDeck = await deleteCard(deckId, index);
+  //   // update UI
+  //   setCards(newDeck.cards);
+  // };
 
   useEffect(() => {
     const fetchDeck = async () => {
@@ -47,25 +53,34 @@ const Deck = () => {
   return (
     <>
       <Navbar />
-      <div className="Deck">
+      <div className="heading-flex">
         <h1>{deck?.title}</h1>
         <form onSubmit={handleAddCard}>
-          <label htmlFor="card-text">Title</label>
-          <input
-            type="text"
-            id="card-text"
-            value={text}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setText(e.target.value);
-            }}
-          />
-          <button>Add</button>
+          <div className="input_parent">
+            <Input
+              type="text"
+              placeholder="Enter question.."
+              value={question}
+              setter={setQuestion}
+            ></Input>
+          </div>
+          <div className="input_parent">
+            <Input
+              type="text"
+              placeholder="Enter answer.."
+              value={answer}
+              setter={setAnswer}
+            ></Input>
+          </div>
+          <button style={{ visibility: 'hidden' }}>Add</button>
         </form>
-        <ul className="cards">
+      </div>
+      <div className="cards_container">
+        <div className="cards-grid">
           {cards.map((card, index) => (
-            <FlipCard card={card} key={index}/>
+            <FlipCard card={card} key={index} />
           ))}
-        </ul>
+        </div>
       </div>
     </>
   );

@@ -1,12 +1,11 @@
-import React from 'react';
 import './FlipCard.css';
 
-const FlipCard = (props: { card: string }) => {
+const FlipCard = (props: any) => {
   return (
-    <li className="FlipCard">
-      {props.card}
-      <button onClick={() => {}}>X</button>
-    </li>
+    <div className="FlipCard">
+      <div className="FlipCardFront">{props.card.question}</div>
+      <div className="FlipCardBack">{props.card.answer}</div>
+    </div>
   );
 };
 

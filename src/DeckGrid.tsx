@@ -1,18 +1,21 @@
 import { useEffect } from 'react';
-import { deleteDeck, getDecks } from './api/api';
+import { getDecks } from './api/api';
 import { useNavigate } from 'react-router-dom';
 import { useDecksProvider } from './context/context';
 import './DeckGrid.css';
 
 const DeckGrid = () => {
-  const {decks, setDecks} = useDecksProvider();
+  const { decks, setDecks } = useDecksProvider();
   const navigate = useNavigate();
 
-  const handleDeleteDeck = async (deckId: string) => {
-    await deleteDeck(deckId);
-    // update UI
-    setDecks(decks.filter((deck) => deck._id !== deckId));
-  };
+  // Since this app doesn't have authentication or authorization,
+  // deleting of anything will be disabled by default.
+  
+  // const handleDeleteDeck = async (deckId: string) => {
+  //   await deleteDeck(deckId);
+  //   // update UI
+  //   setDecks(decks.filter((deck) => deck._id !== deckId));
+  // };
 
   useEffect(() => {
     const fetchDecks = async () => {
@@ -42,12 +45,12 @@ const DeckGrid = () => {
                 </button>
               </div>
 
-              <button
+              {/* <button
                 className="btn__delete"
                 onClick={() => handleDeleteDeck(deck._id)}
               >
                 x
-              </button>
+              </button> */}
             </div>
           </div>
         );

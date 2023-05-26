@@ -1,26 +1,22 @@
-.Deck {
+.cards_container {
+  max-width: 50rem;
+  margin: auto;
+}
+
+.heading-flex {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5rem;
+  place-items: center;
 }
 
-.Deck form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.Deck h1 {
-  font-size: 34px;
-  text-align: center;
-}
-
-.cards {
+.cards-grid {
   display: grid;
-  margin: 0 auto;
-  width: 600px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  color: black;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  margin: auto;
+}
+
+.input_parent {
+  position: relative;
 }
